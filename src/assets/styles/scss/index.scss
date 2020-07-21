@@ -1,3 +1,69 @@
 @import 'vars';
 @import 'mixins';
 @import 'atomic';
+
+.wrapper {
+    max-width: 1000px;
+    padding: 15px;
+    margin: 200px auto;
+}
+
+.select {
+    * {
+        box-sizing: border-box;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &.open {
+        .select__dropdown {
+            display: block;
+        }
+
+        .select__input {
+            border-bottom: none;
+        }
+    }
+
+    width: 100%;
+    position: relative;
+
+    &__input {
+        @include selectCommonStyles;
+        padding: 0 1em;
+        height: $height;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__dropdown {
+        display: none;
+        @include selectCommonStyles;
+        max-height: $height * 4;
+        overflow-y: auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: $height;
+    }
+
+    &__list {
+
+    }
+
+    &__list-item {
+        height: $height;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        padding: 0 1em;
+        cursor: pointer;
+        transition: 220ms background-color ease-in;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .1);
+        }
+    }
+}

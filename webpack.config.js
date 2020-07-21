@@ -69,8 +69,8 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   entry: [
-    '@babel/polyfill',
-    'whatwg-fetch',
+    // '@babel/polyfill',
+    // 'whatwg-fetch',
     './src/index.js',
   ],
   output: {
