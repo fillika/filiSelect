@@ -1,3 +1,4 @@
+
 class Select {
   $el: HTMLElement | null;
   $input: HTMLElement;
@@ -16,7 +17,7 @@ class Select {
     this.selectedId = null;
     this.name = Select.createName(selector);
 
-    window[this.name] = this;
+    (<any>window)[this.name] = this;
 
     this.init();
   }
@@ -26,7 +27,7 @@ class Select {
     this.setup();
   }
 
-  private static createName(selector: string) {
+  private static createName(selector: string):string {
     const prefix = 'fili';
     const pureName = selector.slice(1);
     return prefix + pureName.charAt(0).toUpperCase() + pureName.slice(1);
